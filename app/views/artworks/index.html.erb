@@ -1,0 +1,6 @@
+<h1>Artworks</h1>
+<ol>
+  <% @artworks.each do |artwork| %>
+    <li><%= link_to artwork.title, artwork %></li>
+  <% end %>
+</ol>

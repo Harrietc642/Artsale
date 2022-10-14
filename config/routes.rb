@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'inspirations/index'
+  get 'inspirations/show'
+  get 'artworks/index'
+  get 'artworks/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :artworks, only: [:index, :show]
+  resources :inspirations, only: [:index, :show]
 end

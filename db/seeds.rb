@@ -42,7 +42,9 @@ artworks.each do | a |
       title: a['title'],
       price: a['price'],
       brand: a['brand'],
-      genre: a['genre']
+      genre: a['genre'],
+      inspiration_name: a['inspiration_name'],
+      bitcoin_address: Faker::Blockchain::Bitcoin.address
     )
 
   else
