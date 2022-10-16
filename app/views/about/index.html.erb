@@ -4,9 +4,17 @@
  <%= link_to 'Artwork', artworks_index_path %>
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
-<h1>About Artsale</h1>
-<p>Describe Datasets - Select one or more data sources that you wish to pull data from. Write a short description of the data you are planning to use, how the data is structured, and the required database tables and columns you will require. This description should also explain how data you pull from different sources are related or how you plan to integrate the different datasets. </p>
+
 <div class="notification is-link">
-  Primar lorem ipsum dolor sit amet, consectetur
+  <a>I used the list of artworks and the sublist of artists to indicate who inspired the artwork on sale. I also used genre to indicate the style of the artwork.</a>
+  <p><strong>Three data sources are used in this project.</strong></p>
+  <p>1. Faker</p>
+  <p>2. Artist of all times</p>
+  <p>this dataset (.csv) is used in my inspiration table. As shown in the ERD below, it has the name of the artist, the year range of the artist, the nationality of the artist, the profile link of the artist, and finally number of paintings the world knows of as the table columns.</P>
+  <p>3. Art for sale</p>
   adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
 </div>
+
+<figure class="image is-500x500">
+<%= image_tag "ArtSaleERD.png", height: 5 %>
+</figure>
