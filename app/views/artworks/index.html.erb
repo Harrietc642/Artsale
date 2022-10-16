@@ -1,4 +1,12 @@
 <h1 class="title is-2">Artworks</h1>
+<p>
+  <%= link_to 'About this project', about_index_path %> <%= link_to 'Home', about_index_path %>
+</p>
+<figure class="image is-500x500">
+<%= image_tag "Moonlight.jpg", height: 5 %>
+</figure>
+
+
 <ol class="ml-5">
   <% @artworks.each do |artwork| %>
     <li><%= link_to artwork.title, artwork %></li>
