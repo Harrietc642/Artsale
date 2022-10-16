@@ -1,2 +1,13 @@
-<h1>Inspirations#show</h1>
-<p>Find me in app/views/inspirations/show.html.erb</p>
+<h1 class="title is-1"><%= @inspiration.name %></h1>
+<h3> <%= @inspiration.year %></h3>
+
+<h3>Nationality:<%= @inspiration.nationality %></h3>
+
+<h3>Number of paintings we know of: <%= @inspiration.painting %></h3>
+<h3>Profile: <%= @inspiration.wikipedia %></h3>
+<a href=<%= @inspiration.wikipedia %>>Profile</a>
+
+
+<p>
+  <%= link_to 'Back to all Inspirations', inspirations_path %>
+</p>
