@@ -5,6 +5,7 @@
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
 <h1 class="title is-2">Inspirations</h1>
+<h4><strong>---------------------------------------------------------------------------------------------- I am seeking, I am striving, I am in it with all my heart. - Vincent Van Gogh ----------------------------------------------------------------------------------------------------------------</strong></h4>
 <ol class="ml-5">
   <% @inspirations.each do |inspiration| %>
     <li><%= link_to inspiration.name, inspiration %></li>

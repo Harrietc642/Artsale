@@ -3,7 +3,7 @@ class Artwork < ApplicationRecord
 
   validates :title, :price, :brand, presence: true
   paginates_per 5
-  # validates :title, uniqueness: true
+  validates :title, uniqueness: true
 
 
   has_many :artwork_genres
