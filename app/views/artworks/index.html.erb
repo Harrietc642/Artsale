@@ -1,38 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="message-header">
  <%= link_to 'About', about_index_path %>
  <%= link_to 'Gallery', gallery_index_path %>
+ <%= link_to 'Artwork', artworks_index_path %>
+  <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
-
-
-<%= search_form_for @q, remote: true do |f| %>
-  <%= f.label :title_cont, 'title' %>
-  <%= f.search_field :title_cont %>
-  <%= f.submit %>
-<% end %>
-<ul class="ml-5">
-  <% @resu.each do |artwork| %>
-    <li><%= link_to artwork.title, artwork %></li>
-  <% end %>
-</ul>
 
 <div class="tile is-ancestor">
   <div class="tile is-vertical is-8">
@@ -44,6 +15,16 @@
               <%= image_tag "Reunion.jpg", height: 5 %>
             </figure>
         </article>
+        <%= search_form_for @q, remote: true do |f| %>
+          <%= f.label :title_cont, 'title' %>
+          <%= f.search_field :title_cont %>
+          <%= f.submit %>
+        <% end %>
+        <ul class="ml-5">
+          <% @resu.each do |artwork| %>
+          <li><%= link_to artwork.title, artwork %></li>
+          <% end %>
+        </ul>
         <article class="tile is-child message is-info">
           <%= link_to 'Gallery', gallery_index_path %>
         </article>
