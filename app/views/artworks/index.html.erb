@@ -1,6 +1,10 @@
 <h1 class="title is-2">Artworks</h1>
+<div class="notification is-danger">
+ <%= link_to 'About', about_index_path %>
+ <%= link_to 'Gallery', gallery_index_path %>
+</div>
 <p>
-  <%= link_to 'About this project', about_index_path %> <%= link_to 'Home', about_index_path %>
+
 </p>
 <figure class="image is-500x500">
 <%= image_tag "Moonlight.jpg", height: 5 %>

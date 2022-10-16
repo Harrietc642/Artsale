@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'artworks/index'
   get 'artworks/show'
   get 'about/index' ## about page
+  get 'gallery/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
