@@ -5,6 +5,6 @@ class ArtworksController < ApplicationController
 
   def show
     @artwork = Artwork.find(params[:id])
-    #@inspiration = Inspiration.find(params[:id])
+    @inspiration = Inspiration.find(params[:id])
   end
 end
