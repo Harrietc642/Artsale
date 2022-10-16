@@ -1,6 +1,6 @@
 require "csv"
 
-Artwork.delete_all
+#Artwork.delete_all
 #Inspiration.delete_all
 
 =begin
@@ -18,12 +18,7 @@ inspirations.each do |i|
   )
 end
 =end
-
-
-
-
-
-
+=begin
 artwork_filename = Rails.root.join("db/Artwork1.csv")
 puts "Loading Artworks from the csv file: #{artwork_filename}"
 
@@ -48,3 +43,4 @@ artworks.each do | a |
   end
 end
 puts "Created #{Inspiration.count} inspirations"
+=end
