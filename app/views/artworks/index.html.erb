@@ -11,53 +11,53 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-link">
           <%= link_to 'Wanna know more about this project？', about_index_path %>
-            <figure class="image is-128x128">
+            <figure class="image is-4by3">
               <%= image_tag "Reunion.jpg", height: 5 %>
             </figure>
         </article>
-        <%= search_form_for @q, remote: true do |f| %>
-          <%= f.label :title_cont, 'title' %>
-          <%= f.search_field :title_cont %>
-          <%= f.submit %>
-        <% end %>
+
+      </div>
+        <article class="tile is-child message is-info">
+          <p>----------------------------------------------------------------</p>
+          <%= search_form_for @q, remote: true do |f| %>
+            <p><%= f.label :title_cont, 'products:' %>
+            <%= f.search_field :title_cont %>
+            <%= f.submit %></p>
+          <% end %>
         <ul class="ml-5">
+        <p>------------------------------------------------------------</p>
+        <p><strong>Search result:</strong> </p>
           <% @resu.each do |artwork| %>
           <li><%= link_to artwork.title, artwork %></li>
           <% end %>
         </ul>
-        <article class="tile is-child message is-info">
-          <%= link_to 'Gallery', gallery_index_path %>
         </article>
-      </div>
       <div class="tile is-parent message is-info">
         <article class="tile is-child notification is-info">
+        <p class="title">Artworks</p>
           <figure class="image is-4by3">
             <%= image_tag "Moonlight.jpg", height: 5 %>
           </figure>
-        </article>
-      </div>
-    </div>
-    <div class="tile is-parent message-header">
-      <article class="tile is-child">
-        <p class="subtitle">Navigate our artworks here</p>
-         <%=paginate @artworks%>
-        <div class="content">
-          <!-- Content -->
-        </div>
-      </article>
-    </div>
-  </div>
-  <div class="tile is-parent">
-    <article class="tile is-child message is-info">
-      <div class="content">
-        <p class="title">Artworks</p>
-        <ul class="ml-5">
+          <%=paginate @artworks%>
+                  <ul class="ml-5">
           <% @artworks.each do |artwork| %>
             <li><%= link_to artwork.title, artwork %></li>
           <% end %>
         </ul>
-        <div class="content">
-          <!-- Content -->
+        </article>
+      </div>
+    </div>
+
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child message is-info">
+
+        <p class="title">My design</p>
+        <%= image_tag "Phoenix.jpg", height: 5 %>
+
+
+
+
         </div>
       </div>
     </article>
