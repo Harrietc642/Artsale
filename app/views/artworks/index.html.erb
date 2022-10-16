@@ -1,18 +1,86 @@
-<h1 class="title is-2">Artworks</h1>
-<div class="notification is-danger">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="message-header">
  <%= link_to 'About', about_index_path %>
  <%= link_to 'Gallery', gallery_index_path %>
 </div>
-<p>
-
-</p>
-<figure class="image is-500x500">
-<%= image_tag "Moonlight.jpg", height: 5 %>
-</figure>
 
 
-<ol class="ml-5">
-  <% @artworks.each do |artwork| %>
+<%= search_form_for @q, remote: true do |f| %>
+  <%= f.label :title_cont, 'title' %>
+  <%= f.search_field :title_cont %>
+  <%= f.submit %>
+<% end %>
+<ul class="ml-5">
+  <% @resu.each do |artwork| %>
     <li><%= link_to artwork.title, artwork %></li>
   <% end %>
-</ol>
+</ul>
+
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-primary">
+          <%= link_to 'Wanna know more about this project？', about_index_path %>
+            <figure class="image is-128x128">
+              <%= image_tag "Reunion.jpg", height: 5 %>
+            </figure>
+        </article>
+        <article class="tile is-child message is-info">
+          <%= link_to 'Gallery', gallery_index_path %>
+        </article>
+      </div>
+      <div class="tile is-parent message is-info">
+        <article class="tile is-child notification is-info">
+          <figure class="image is-4by3">
+            <%= image_tag "Moonlight.jpg", height: 5 %>
+          </figure>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent message-header">
+      <article class="tile is-child">
+        <p class="subtitle">Navigate our artworks here</p>
+         <%=paginate @artworks%>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child message is-info">
+      <div class="content">
+        <p class="title">Artworks</p>
+        <ul class="ml-5">
+          <% @artworks.each do |artwork| %>
+            <li><%= link_to artwork.title, artwork %></li>
+          <% end %>
+        </ul>
+        <div class="content">
+          <!-- Content -->
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+

@@ -2,6 +2,7 @@ class Artwork < ApplicationRecord
   belongs_to :inspiration
 
   validates :title, :price, :brand, presence: true
+  paginates_per 5
   # validates :title, uniqueness: true
 
 
