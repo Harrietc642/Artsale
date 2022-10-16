@@ -1,0 +1,15 @@
+<div class="message-header">
+ <%= link_to 'About', about_index_path %>
+ <%= link_to 'Gallery', gallery_index_path %>
+ <%= link_to 'Artwork', artworks_index_path %>
+  <%= link_to 'Inspirations', inspirations_index_path %>
+</div>
+<h1 class="title is-2">Genres</h1>
+<ol class="ml-5">
+  <% @genres.each do |genre| %>
+    <li><%= genre.name %></li>
+  <% end %>
+</ol>
+<figure class="image is-500x500">
+<%= image_tag "Sky_Garden.jpg", height: 5 %>
+</figure>

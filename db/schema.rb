@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_001337) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_16_052335) do
+  create_table "artwork_genres", force: :cascade do |t|
+    t.integer "artworks_id", null: false
+    t.integer "genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artworks_id"], name: "index_artwork_genres_on_artworks_id"
+    t.index ["genre_id"], name: "index_artwork_genres_on_genre_id"
+  end
+
   create_table "artworks", force: :cascade do |t|
     t.string "title"
     t.decimal "price"
@@ -24,6 +33,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_001337) do
     t.index ["inspiration_id"], name: "index_artworks_on_inspiration_id"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inspirations", force: :cascade do |t|
     t.string "name"
     t.string "year"
@@ -34,5 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_001337) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "artwork_genres", "artworks", column: "artworks_id"
+  add_foreign_key "artwork_genres", "genres"
   add_foreign_key "artworks", "inspirations"
 end
