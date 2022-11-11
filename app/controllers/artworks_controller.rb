@@ -1,13 +1,11 @@
 class ArtworksController < ApplicationController
   def index
-    #@q = Artwork.ransack(params[:q])
-    #@resu = @q.result
+    #sucess without dropdown menu
     @q = Artwork.ransack(params[:q])
-    @resu = @q.result
+    @resu = @q.result(:distinct => true).includes(:inspiration)
+    @artworks = Artwork.joins(:inspiration).order("title ASC").page(params[:page])
 
-    #@artworks = @q.result.(distinct: true).order("title ASC").page(params[:page])
-    @artworks = Artwork.order("title ASC").page(params[:page])
-
+   # @artworks = Artwork.joins(:inspiration).order("title ASC").page(params[:page]).where()
   end
 
   def show

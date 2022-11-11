@@ -1,59 +1,43 @@
 <div class="message-header">
+ <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
- <%= link_to 'Gallery', gallery_index_path %>
  <%= link_to 'Artwork', artworks_index_path %>
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
 
-<div class="tile is-ancestor">
-  <div class="tile is-vertical is-8">
-    <div class="tile">
-      <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-link">
-          <%= link_to 'Wanna know more about this project？', about_index_path %>
-            <figure class="image is-4by3">
-              <%= image_tag "Reunion.jpg", alt: "Reunion", height: 5 %>
-            </figure>
-        </article>
+<div class="tile is-parent message is-info">
+  <article class="tile is-child notification is-info">
+  <div class="ml-4">
+    <%= search_form_for @q, remote: true do |f| %>
+      <%= f.search_field  :title_cont%>
+        <div class="form-control">
 
-      </div>
-        <article class="tile is-child message is-info">
-          <p>----------------------------------------------------------------</p>
-          <%= search_form_for @q, remote: true do |f| %>
-            <p><%= f.label :title_cont, 'products:' %>
-            <%= f.search_field :title_cont %>
+        <%= f.select :inspiration_name_cont, options_from_collection_for_select(Inspiration.all, :name,:name,  @q.inspiration_name_cont), { :include_blank => true }, :class => "form-control" %>
+  </div>
             <%= f.submit %></p>
-          <% end %>
-        <ul class="ml-5">
 
-
-          <% @resu.each do |artwork| %>
-          <li><%= link_to artwork.title, artwork %></li>
           <% end %>
-        </ul>
+        </div>
         </article>
-      <div class="tile is-parent message is-info">
+</div>
+<div class="tile is-parent message is-info">
+        <article class="tile is-child notification is-info">
+          <ul class="ml-4">
+            <% @resu.each do |artwork| %>
+              <li><%= link_to artwork.title, artwork %></li>
+            <% end %>
+          </ul>
+        </article>
+</div>
+              <div class="tile is-parent message is-info">
         <article class="tile is-child notification is-info">
         <p class="title">Artworks</p>
-          <figure class="image is-4by3">
-            <%= image_tag "Moonlight.jpg", alt: "Moonlight", height: 5 %>
-          </figure>
+
           <%=paginate @artworks%>
           <ul class="ml-5">
-            <% @artworks.each do |artwork| %>
-            <li><%= link_to artwork.title, artwork %></li>
-          <% end %>
-        </ul>
+            <% @artworks.each do |a| %>
+            <li><%= link_to a.title, a %></li>
+            <% end %>
+          </ul>
         </article>
       </div>
-    </div>
-
-  </div>
-  <div class="tile is-parent">
-    <article class="tile is-child message is-info">
-        <p class="title">My design</p>
-        <%= image_tag "Phoenix.jpg", alt: "Phoneix", height: 5 %>
-    </article>
-  </div>
-
-  </div>

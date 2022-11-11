@@ -1,28 +1,20 @@
 <div class="message-header">
+ <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
- <%= link_to 'Gallery', gallery_index_path %>
  <%= link_to 'Artwork', artworks_index_path %>
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
-<h1 class="title is-2">Gallery</h1>
+  <div class="tile is-parent">
+    <article class="tile is-child message is-info">
+        <p class="title">Welcome to Blair's World</p>
+        <p class="title">Contact Harriet</p>
+        <p class="title">Contact Harriet</p>
+        <p class="title">See all the products below</p>
+          <div class="tile">
 
-<div class="box">
-  <label class="label">Moonlight</label>
-  <figure class="image is-128x128">
-    <%= image_tag "Moonlight.jpg", height: 5 %>
-  </figure>
-</div>
 
-<div class="box">
-  <label class="label">Directions</label>
-  <figure class="image is-128x128">
-    <%= image_tag "Directions.jpg", height: 5 %>
-  </figure>
-</div>
+    </div>
 
-<div class="box">
-  <label class="label">Reunion</label>
-  <figure class="image is-128x128">
-    <%= image_tag "Reunion.jpg", height: 5 %>
-  </figure>
-</div>
+
+    </article>
+  </div>
