@@ -74,3 +74,4 @@ end
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'main'
 gem 'kaminari'
 gem 'ransack'
+gem 'discordrb'

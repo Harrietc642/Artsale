@@ -5,16 +5,6 @@
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
 
-<div class="notification is-link">
-  <a>I used the list of artworks and the sublist of artists to indicate who inspired the artwork on sale. I also used genre to indicate the style of the artwork.</a>
-  <p><strong>Three data sources are used in this project.</strong></p>
-  <p><strong>1. Faker</strong></p>
-  <p><strong>2. Artist of all times</strong></p>
-  <p>this dataset (.csv) is used in my inspiration table. As shown in the ERD below, it has the name of the artist, the year range of the artist, the nationality of the artist, the profile link of the artist, and finally number of paintings the world knows of as the table columns.</P>
-  <p><strong>3. Art for sale</strong></p>
-   <p>this dataset (.csv) is used in my artworks and genre tables. As shown in the ERD below, the name of the genre is used in the genre table. On the other hand, the columns of the artwork title, the price, the brand are used. Notably, I used inspiration id as the foriegn key so it is linked to the artwork is inspired by a specifc artist of all times (one-to-many relationship) and artwoks can have multiple genres (many-to-many relationship). Notably, Bitcoin address is used for potential customer method. </p>
-</div>
-
-<figure class="image is-500x500">
-<%= image_tag "ArtSaleERD.png", height: 5 %>
-</figure>
+<div class="tile is-parent message is-info">
+        <article class="tile is-child notification is-info">
+        <h1>Chat with us on Discord Server <%= link_to 'Blairs World', 'https://discord.gg/aNv2tScC ' %> and chat with our bot blairsworld#8274!</h1>
