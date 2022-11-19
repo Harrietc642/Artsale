@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+  get 'orders/index'
+  get 'orders/show'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'customers/index'
   get 'customers/show'
   get 'genres/index'
   get 'genres/show'
   get 'genres/index'
   get 'search/index'
-  get 'about/index'
+  get 'abouts/index'
   get 'inspirations/index'
   get 'inspirations/show'
   get 'artworks/index'
@@ -23,5 +28,6 @@ Rails.application.routes.draw do
   resources :inspirations, only: [:index, :show]
   resources :gallery, only: [:index, :show]
   resources :genres, only: [:index]
+  resources :abouts, only: [:index]
   root to: 'gallery#index'
 end

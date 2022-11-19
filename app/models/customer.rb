@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
   has_many :orders
-  has_many :artworks, through: :orders
+  #has_many :artworks, through: :orders
 end
 
 =begin

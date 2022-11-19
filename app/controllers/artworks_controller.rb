@@ -5,6 +5,7 @@ class ArtworksController < ApplicationController
     @resu = @q.result(:distinct => true).includes(:inspiration)
     @artworks = Artwork.joins(:inspiration).order("title ASC").page(params[:page])
 
+
    # @artworks = Artwork.joins(:inspiration).order("title ASC").page(params[:page]).where()
   end
 

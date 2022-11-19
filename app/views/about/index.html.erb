@@ -1,3 +1,4 @@
+
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
@@ -5,50 +6,10 @@
   <%= link_to 'Inspirations', inspirations_index_path %>
 </div>
 
-<div class="tile is-parent message is-info">
-  <article class="tile is-child notification is-info">
-    <h1>Chat with us on Discord Server <%= link_to 'Blairs World', 'https://discord.gg/aNv2tScC ' %> and chat with our bot blairsworld#8274!</h1>
 
-  </article>
-
-</div>
-
-
-
-<div class="box tile is-parent message is-info">
-  <article class="media">
-    <div class="media-left">
-      <figure class="image is-80x80">
-        <%= image_tag "Discordbot.jpg", height: 5%>
-      </figure>
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>How to use our discord chatbot</strong>
-          <br>
-          We love to share our story and our discord bot is here for everyone! It will show you our latest product. Let's start chatting!
-        </p>
-      </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="reply">
-            <span class="icon is-small">
-              <i class="fas fa-reply" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="retweet">
-            <span class="icon is-small">
-              <i class="fas fa-retweet" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="like">
-            <span class="icon is-small">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-      </nav>
-    </div>
-  </article>
-</div>
+<ol class="ml-5">
+  <% @about.each do |ab| %>
+    <%= ab.subject %>
+    <%= ab.content %>
+  <% end %>
+</ol>

@@ -105,3 +105,4 @@ artworks.each do | a |
 end
 puts "Created #{Inspiration.count} inspirations"
 =end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

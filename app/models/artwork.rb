@@ -5,7 +5,7 @@ class Artwork < ApplicationRecord
   # has_many :patients, through: :appointments
 
   has_many :orders
-  has_many :customers, through :orders
+  has_many :customers, through: :orders
 
   validates :title, :price, :brand, presence: true
   paginates_per 5

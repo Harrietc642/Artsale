@@ -12,8 +12,9 @@
       <%= f.search_field  :title_cont%>
         <div class="form-control">
 
-        <%= f.select :inspiration_name_cont, options_from_collection_for_select(Inspiration.all, :name,:name,  @q.inspiration_name_cont), { :include_blank => true }, :class => "form-control" %>
-  </div>
+          <%= f.select :inspiration_name_cont, options_from_collection_for_select(Inspiration.all, :name,:name,  @q.inspiration_name_cont), { :include_blank => true }, :class => "form-control" %>
+        </div>
+
             <%= f.submit %></p>
 
           <% end %>
