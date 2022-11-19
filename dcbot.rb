@@ -1,18 +1,12 @@
 require 'discordrb'
 
-# bot = Discordrb::Bot.new token: 'MTA0MTU1MjE1MTgxMTQ1NzAzNQ.GlaUOB.JMfpkBlSex2TY0QP-AM7Ot9lzx45peZsyFOs8E', , prefix: '!'
-#@ot = Discordrb::Commands::CommandBot.new token: 'MTA0MTU1MjE1MTgxMTQ1NzAzNQ.GlaUOB.JMfpkBlSex2TY0QP-AM7Ot9lzx45peZsyFOs8E'
-#@bot.run
-#@bot.message(with_text: 'help') do |event|
-#  event.respond 'Pong!'
-#end
-
-@bot = Discordrb::Bot.new token: 'MTA0MTU1MjE1MTgxMTQ1NzAzNQ.GlaUOB.JMfpkBlSex2TY0QP-AM7Ot9lzx45peZsyFOs8E', client_id: 1041552151811457035
+@bot = Discordrb::Bot.new token: 'MTA0MTU1MjE1MTgxMTQ1NzAzNQ.GNM0Xh.YUAwJLdP1-2dWVUe5iYEXK9dCqu8Ddh6jjVdM4', client_id: 1041552151811457035
 @bot.run true
 @bot.message(with_text: 'help') do |event|
   event.respond 'Hello! How can I help? See the menu below and Let me know what things do you need help with (type the number of the menu).'
   event.respond '1. where can I find you guys online?'
   event.respond '2. I wanna know more about Blairs World'
+  event.respond '3. What is your latest product?'
   event.respond
 end
 @bot.message(with_text: '1') do |event|
@@ -21,6 +15,8 @@ end
 @bot.message(with_text: '2') do |event|
   event.respond 'Blair is my precious baby girl. She inspires me in every single way and I would love to dedicate my artworks to her.'
 end
+@bot.message(with_text: '3') do |event|
+  event.respond 'Gold Metal Decorative With Led Wall Art is our latest product. Check it out at http://127.0.0.1:3000/artworks/258'
+end
 @bot.join
 
-# commands go here!

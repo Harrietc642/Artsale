@@ -1,5 +1,6 @@
 require "csv"
 
+=begin
 #Artwork.delete_all
 #Inspiration.delete_all
 ArtworkGenre.delete_all
@@ -51,7 +52,7 @@ artworks.each do | a |
   end
 end
 puts "Created #{Inspiration.count} inspirations"
-
+=end
 
 
 

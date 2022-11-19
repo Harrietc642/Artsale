@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_16_052335) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_19_072657) do
   create_table "artwork_genres", force: :cascade do |t|
     t.integer "artworks_id", null: false
     t.integer "genre_id", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_052335) do
     t.index ["inspiration_id"], name: "index_artworks_on_inspiration_id"
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "email"
+    t.string "login_pw"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -49,7 +59,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_16_052335) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.datetime "date"
+    t.text "comments"
+    t.integer "customer_id", null: false
+    t.integer "artworks_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artworks_id"], name: "index_orders_on_artworks_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   add_foreign_key "artwork_genres", "artworks", column: "artworks_id"
   add_foreign_key "artwork_genres", "genres"
   add_foreign_key "artworks", "inspirations"
+  add_foreign_key "orders", "artworks", column: "artworks_id"
+  add_foreign_key "orders", "customers"
 end
