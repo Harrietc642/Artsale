@@ -1,15 +1,37 @@
-
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
- <%= link_to 'Artwork', artworks_index_path %>
+ <%= link_to 'Search', artworks_index_path %>
   <%= link_to 'Inspirations', inspirations_index_path %>
+  <%= link_to 'All Artworks', gallery_index_path %>
 </div>
 
+<div class="tile is-parent message is-info">
+  <article class="tile is-child notification is-info">
+    <ul class="ml-4">
+      <% @about.each do |ab| %>
+        <%= ab.subject %>
+      <% end %>
+    </ul>
+    <ul class="ml-4">
+      <% @about.each do |ab| %>
+        <%= ab.content %>
+      <% end %>
+    </ul>
+  </article>
+</div>
 
-<ol class="ml-5">
-  <% @about.each do |ab| %>
-    <%= ab.subject %>
-    <%= ab.content %>
-  <% end %>
-</ol>
+      <% @contact.each do |con| %>
+      <div class="tile is-parent message is-info">
+
+        <article class="tile is-child notification is-info">
+    <ol class="ml-5">
+        <%= con.subject %>
+        <%= con.name %>
+        <%= con.full_address %>
+        <%= con.phone %>
+        <%= con.hours %>
+    </ol>
+  </article>
+  </div>
+<% end %>

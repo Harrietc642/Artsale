@@ -1,20 +1,30 @@
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
- <%= link_to 'Artwork', artworks_index_path %>
+ <%= link_to 'Search', artworks_index_path %>
   <%= link_to 'Inspirations', inspirations_index_path %>
+  <%= link_to 'All Artworks', gallery_index_path %>
 </div>
-  <div class="tile is-parent">
-    <article class="tile is-child message is-info">
-        <p class="title">Welcome to Blair's World</p>
-        <p class="title">Contact Harriet</p>
-        <p class="title">Contact Harriet</p>
-        <p class="title">See all the products below</p>
-          <div class="tile">
 
+<div class="tile is-parent">
+  <article class="tile is-child message is-info">
+    <p class="title">Welcome to Blair's World - See all the products below</p>
+  </article>
+</div>
 
-    </div>
+<div class="tile is-parent message is-info">
+  <article class="tile is-child notification is-info">
+    <p class="title">Artworks</p>
+      <ul class="ml-5">
+        <% @artworks.each do |a| %>
+          <li><%= link_to a.title, a %></li>
+        <% end %>
+      </ul>
+  </article>
+</div>
 
-
-    </article>
-  </div>
+<div class="tile is-parent message is-info">
+  <article class="tile is-child">
+    <%=paginate @artworks%>
+  </article>
+</div>
