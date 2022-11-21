@@ -6,7 +6,7 @@ class Artwork < ApplicationRecord
 
   has_many :orders
   has_many :customers, through: :orders
-
+  has_one_attached :image
   validates :title, :price, :brand, presence: true
   paginates_per 5
   # validates :title, uniqueness: true

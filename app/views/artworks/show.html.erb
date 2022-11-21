@@ -6,8 +6,11 @@
 <h3>Inspiration: <%= @artwork.inspiration_name %></h3>
 <h3>Bitcoin Address: <%= @artwork.bitcoin_address %></h3>
 
-
-
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <%= image_tag @artwork.image %>
+      </figure>
+    </div>
 
 <p>
   <%= link_to 'Back to all artworks', artworks_path %>
