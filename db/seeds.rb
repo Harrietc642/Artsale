@@ -1,6 +1,6 @@
 require "csv"
 
-=begin
+
 #Artwork.delete_all
 #Inspiration.delete_all
 ArtworkGenre.delete_all
@@ -52,7 +52,7 @@ artworks.each do | a |
   end
 end
 puts "Created #{Inspiration.count} inspirations"
-=end
+
 
 
 
@@ -64,7 +64,7 @@ puts "Created #{Inspiration.count} inspirations"
 #Artwork.delete_all
 #Inspiration.delete_all
 
-=begin
+
 inspiration_filename = Rails.root.join("db/Inspiration1.csv")
 puts "Loading Inspirations from the csv file: #{inspiration_filename}"
 csv_data_inspiration = File.read(inspiration_filename)
@@ -78,8 +78,8 @@ inspirations.each do |i|
     painting: i['painting']
   )
 end
-=end
-=begin
+
+
 artwork_filename = Rails.root.join("db/Artwork1.csv")
 puts "Loading Artworks from the csv file: #{artwork_filename}"
 
@@ -104,5 +104,5 @@ artworks.each do | a |
   end
 end
 puts "Created #{Inspiration.count} inspirations"
-=end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

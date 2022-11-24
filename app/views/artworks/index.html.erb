@@ -1,3 +1,4 @@
+<article class="message is-success">
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
@@ -5,27 +6,42 @@
   <%= link_to 'Inspirations', inspirations_index_path %>
   <%= link_to 'All Artworks', gallery_index_path %>
 </div>
+</article>
 
-<div class="tile is-parent message is-info">
-  <article class="tile is-child notification is-info">
-    <div class="ml-4">
-      <%= search_form_for @q, remote: true do |f| %>
-        <%= f.search_field  :title_cont%>
-          <div class="form-control">
-            <%= f.select :inspiration_id_matches, options_from_collection_for_select(Inspiration.all, :id,:name,  @q.inspiration_id_matches), { :include_blank => true }, :class => "form-control" %>
-          </div>
-          <%= f.submit %></p>
-      <% end %>
-    </div>
-  </article>
-</div>
+<article class="message is-success">
+  <div class="message-body">
+    <strong>Look for your favourite artwork here!</strong>
+  </div>
+</article>
 
-<div class="tile is-parent message is-info">
-  <article class="tile is-child notification is-info">
+
+
+
+
+
+<article class="message is-success">
+  <div class="message-body">
+    <form class="box">
+      <div class="field">
+        <%= search_form_for @q, remote: true do |f| %>
+        <label class="label">Products</label>
+        <div class="control">
+          <%= f.search_field  :title_cont%>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Category</label>
+        <div class="control">
+          <%= f.select :inspiration_id_matches, options_from_collection_for_select(Inspiration.all, :id,:name,  @q.inspiration_id_matches), { :include_blank => true }, :class => "form-control" %>
+        </div>
+      </div>
+    <%= f.submit %>
+    <% end %>
+    </form>
     <ul class="ml-4">
       <% @resu.each do |artwork| %>
         <li><%= link_to artwork.title, artwork %></li>
       <% end %>
     </ul>
-  </article>
-</div>
+  </div>
+</article>

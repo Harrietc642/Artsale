@@ -1,6 +1,6 @@
 require 'discordrb'
 
-@bot = Discordrb::Bot.new token: 'MTA0MTU1MjE1MTgxMTQ1NzAzNQ.GNM0Xh.YUAwJLdP1-2dWVUe5iYEXK9dCqu8Ddh6jjVdM4', client_id: 1041552151811457035
+@bot = Discordrb::Bot.new token: '', client_id: 1041552151811457035
 @bot.run true
 @bot.message(with_text: 'help') do |event|
   event.respond 'Hello! How can I help? See the menu below and Let me know what things do you need help with (type the number of the menu).'
