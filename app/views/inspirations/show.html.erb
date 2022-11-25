@@ -1,4 +1,4 @@
-<article class="message is-link">
+<article class="message is-warning">
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
@@ -8,8 +8,8 @@
 </div>
 </article>
 
-<div class="tile is-parent message is-info">
-  <article class="tile is-child notification is-info">
+<div class="tile is-parent message is-warning">
+  <article class="tile is-child notification is-warning">
         <p>
   <%= link_to 'Back to all Inspirations', inspirations_path %>
 </p>
@@ -27,7 +27,7 @@
   </article>
 
 
-  <article class="tile is-child notification is-info">
+  <article class="tile is-child notification is-warning">
       <h1 class="title is-4"><%= @inspiration.name %> inspired the following of our products: </h1>
       <div>
       <ul class="ml-5">

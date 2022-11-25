@@ -1,4 +1,4 @@
-<article class="message is-link">
+<article class="message is-warning">
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
  <%= link_to 'About', about_index_path %>
@@ -9,14 +9,14 @@
 </article>
 
 
-              <div class="tile is-parent message is-info">
-        <article class="tile is-child notification is-info">
+              <div class="tile is-parent message is-warning">
+        <article class="tile is-child notification is-warning">
 
 <h1 class="title is-2">Navigate our products here through their inspiration category:</h1>
-<ol class="ml-5">
+<ul class="ml-5">
   <% @inspirations.each do |inspiration| %>
     <li><%= link_to inspiration.name, inspiration %></li>
   <% end %>
-</ol>
+</ul>
 </div>
 </article>

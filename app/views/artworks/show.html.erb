@@ -1,29 +1,20 @@
-
 <article class="message is-link">
-<div class="message-header">
- <%= link_to 'Home', gallery_index_path %>
- <%= link_to 'About', about_index_path %>
- <%= link_to 'Search', artworks_index_path %>
-  <%= link_to 'Inspirations', inspirations_index_path %>
-  <%= link_to 'All Artworks', gallery_index_path %>
-</div>
+  <div class="message-header">
+  <%= link_to 'Home', gallery_index_path %>
+  <%= link_to 'About', about_index_path %>
+  <%= link_to 'Search', artworks_index_path %>
+    <%= link_to 'Inspirations', inspirations_index_path %>
+    <%= link_to 'All Artworks', gallery_index_path %>
+  </div>
 </article>
-<h3> <%= @artwork.brand %></h3>
+<article class="message is-link">
+  <h3> <%= @artwork.brand %></h3>
+  <h3>Price: $<%= @artwork.price %></h3>
+  <h3>Genre: <%= @artwork.genre %></h3>
+  <h3>Inspiration: <%= @artwork.inspiration_name %></h3>
+  <h3>Bitcoin Address: <%= @artwork.bitcoin_address %></h3>
 
-<h3>Price: $<%= @artwork.price %></h3>
-<h3>Genre: <%= @artwork.genre %></h3>
-<h3>Inspiration: <%= @artwork.inspiration_name %></h3>
-<h3>Bitcoin Address: <%= @artwork.bitcoin_address %></h3>
-
-
-<% if @artwork.image.present? %>
-  <p><%= image_tag @artwork.image.variant(resize_to_limit: [285, 285]).processed  %></p>
-<% end %>
-
-
-
-
-
-<p>
-  <%= link_to 'Back to all artworks', artworks_path %>
-</p>
+  <% if @artwork.image.present? %>
+    <p><%= image_tag @artwork.image %></p>
+  <% end %>
+</article>
