@@ -6,6 +6,7 @@ ActiveAdmin.register Artwork do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :title, :price, :brand, :inspiration_id, :genre, :inspiration_name, :bitcoin_address, :image
+  #, artwork_genres: [id, :artworks_id, :genre_id, :_destroy]
   #
   # or  # add the image upload function in
   form do |f|

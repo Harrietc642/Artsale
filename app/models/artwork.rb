@@ -13,5 +13,6 @@ class Artwork < ApplicationRecord
   #enum inspiration: { fantasy: 1, romance: 2, horror: 3, fiction: 4, poetry: 5 }
 
   has_many :artwork_genres
-  #has_many :genres, through :movie_genres
+  #has_many :genres, through :artwork_genres
+  #accepts_nested_attributes_for :artwork_genres, allow_destroy: true
 end
