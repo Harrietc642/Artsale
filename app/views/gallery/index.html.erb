@@ -9,21 +9,10 @@
 </article>
 <div class="tile is-parent">
   <article class="tile is-child message is-danger">
-    <p class="title">Welcome to Blair's World - See all the products below</p>
+    <p class="title">Welcome to Blair's World for <%= pluralize @shopping_cart, 'time' %>  - See all the products below</p>
   </article>
 </div>
-
-<div class="tile is-parent message is-danger">
-  <article class="tile is-child notification is-danger is-light">
-    <p class="title">Artworks</p>
-      <ul class="ml-5">
-        <% @artworks.each do |a| %>
-          <li><%= link_to a.title, a %></li>
-        <% end %>
-      </ul>
-  </article>
-</div>
-
+<%= render partial: 'gallery', collection: @artworks, locals: { show_link: true } %>
 <div class="tile is-parent message is-danger is-light">
   <article class="tile is-child">
     <%=paginate @artworks%>

@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   resources :genres, only: [:index]
   resources :abouts, only: [:index]
   root to: 'gallery#index'
+  resources :cart, only: %i[:create, :destroy]
 end

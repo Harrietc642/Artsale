@@ -1,0 +1,28 @@
+<div class="column is-one-third tile is-child notification is-danger is-light">
+  <div class="card horse">
+    <div class="card-content">
+      <form action="">
+        <p class="title is-5">
+            <%= link_to gallery.title, gallery %>
+        </p>
+        <article>
+          <div>
+            <% if gallery.image.present? %>
+              <div class="card-image">
+                <figure class="image is-16by9">
+                  <%= image_tag gallery.image %>
+                </figure>
+              </div>
+            <% end %>
+          </div>
+        </article>
+        <ul>
+          <li>
+            <strong>Price:</strong> <%= number_to_currency gallery.price %>
+          </li>
+        </ul>
+        <%= button_tag 'Add to cart' %>
+      </form>
+    </div>
+  </div>
+</div>
