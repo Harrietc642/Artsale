@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
   has_many :orders
+  validates :first_name, :email, :login_pw, presence: true
   #has_many :artworks, through: :orders
 end
 
