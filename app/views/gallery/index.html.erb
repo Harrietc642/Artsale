@@ -1,5 +1,5 @@
 
-
+    <%= debug session[:cart] %>
 <article class="message is-danger is-light">
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
@@ -8,10 +8,21 @@
   <%= link_to 'Inspirations', inspirations_index_path %>
   <%= link_to 'All Artworks', gallery_index_path %>
 </div>
+
 </article>
 <div class="tile is-parent">
   <article class="tile is-child message is-danger">
     <p class="title">Welcome to Blair's World for the <%= pluralize @visit_count, 'time' %>  - See all the products below</p>
+    <details>
+      <summary>Shopping Cart</summary>
+      <ul>
+        <% @cart.each do |artwork|%>
+          <li>
+            <%= artwork.title %>
+          </li>
+        <% end %>
+      </ul>
+    </details>
   </article>
 </div>
 <%= render partial: 'gallery', collection: @artworks, locals: { show_link: true } %>

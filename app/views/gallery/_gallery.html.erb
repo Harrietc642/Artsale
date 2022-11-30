@@ -2,11 +2,8 @@
 <div class="column is-one-third tile is-child notification is-danger is-light">
   <div class="card horse">
     <div class="card-content">
-    <%= debug session[:cart] %>
-
         <p class="title is-5">
-            <%= link_to gallery.title, gallery %>
-
+          <%= link_to gallery.title, gallery %>
         </p>
         <article>
           <div>
@@ -26,7 +23,6 @@
         </ul>
 
         <%= link_to 'add to cart', add_to_cart_path(gallery.id), method: :get %>
-
 
     </div>
   </div>
