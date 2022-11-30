@@ -1,3 +1,5 @@
+
+
 <article class="message is-danger is-light">
 <div class="message-header">
  <%= link_to 'Home', gallery_index_path %>
@@ -9,7 +11,7 @@
 </article>
 <div class="tile is-parent">
   <article class="tile is-child message is-danger">
-    <p class="title">Welcome to Blair's World for <%= pluralize @shopping_cart, 'time' %>  - See all the products below</p>
+    <p class="title">Welcome to Blair's World for the <%= pluralize @visit_count, 'time' %>  - See all the products below</p>
   </article>
 </div>
 <%= render partial: 'gallery', collection: @artworks, locals: { show_link: true } %>

@@ -1,12 +1,12 @@
 class GalleryController < ApplicationController
+  before_action :initialize_session
+  before_action :increment_visit_count, only: %i[index]
   def index
     @artworks = Artwork.order("title ASC").page(params[:page])
-    #session[:shopping_cart] ||= [] #default value
-    #session[:shopping_cart] += 1
-    #@shopping_cart = session[:shopping_cart]
   end
 
   def show
     @artwork = Artwork.find(params[:id])
   end
+
 end

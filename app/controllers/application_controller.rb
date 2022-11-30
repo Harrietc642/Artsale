@@ -1,16 +1,22 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_session
-  helper_method :cart
+  before_action :increment_visit_count, only: %i[index show]
+
+
+
+  def add_to_cart
+    session[:cart] << params[:id]
+    redirect_to(gallery_index_path, notice: 'Item added!')
+  end
 
   private
   def initialize_session
-    #will initialize the visit count to zero for new users
-    #session[:visit_count] ||= 0 #default value
-    session[:shopping_cart] ||= [] #default empty array of artwork IDs
-    @shopping_cart = session[:shopping_cart]
+    session[:visit_count] ||= 0
+    session[:cart] ||= []
   end
-  def cart
-    # pass an array of product ids and get back collection of products
-    Artwork.find(session[:shopping_cart])
+
+  def increment_visit_count
+    session[:visit_count] += 1
+    @visit_count = session[:visit_count]
   end
 end

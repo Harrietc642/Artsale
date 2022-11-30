@@ -1,9 +1,12 @@
+
 <div class="column is-one-third tile is-child notification is-danger is-light">
   <div class="card horse">
     <div class="card-content">
-      <form action="">
+    <%= debug session[:cart] %>
+
         <p class="title is-5">
             <%= link_to gallery.title, gallery %>
+
         </p>
         <article>
           <div>
@@ -21,8 +24,10 @@
             <strong>Price:</strong> <%= number_to_currency gallery.price %>
           </li>
         </ul>
-        <%= button_tag 'Add to cart' %>
-      </form>
+
+        <%= link_to 'add to cart', add_to_cart_path(gallery.id), method: :get %>
+
+
     </div>
   </div>
 </div>
