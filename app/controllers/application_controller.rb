@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     redirect_to(gallery_index_path, notice: 'Item added!')
   end
 
+  def remove_from_cart
+    #id = params[:id].to_i
+    session[:cart].delete(params[:id].to_i)
+    redirect_to(gallery_index_path, notice: 'Item deleted!')
+  end
+
   private
   def initialize_session
     session[:visit_count] ||= 0

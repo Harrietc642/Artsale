@@ -19,6 +19,7 @@
         <% @cart.each do |artwork|%>
           <li>
             <%= artwork.title %>
+               <%= link_to 'remove from cart', remove_from_cart_path(artwork), turbo_method: :delete %>
           </li>
         <% end %>
       </ul>
