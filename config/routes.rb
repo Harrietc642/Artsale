@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
+
   get 'contact/index'
   get 'orders/index'
   get 'orders/show'
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'search/index'
   get 'genres/index'
   get 'gallery/add_to_cart/:id', to: 'gallery#add_to_cart', as: 'add_to_cart'
-
+  delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

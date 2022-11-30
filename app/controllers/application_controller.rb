@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def remove_from_cart
-    #id = params[:id].to_i
-    session[:cart].delete(params[:id].to_i)
-    redirect_to(gallery_index_path, notice: 'Item deleted!')
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to(gallery_index_path)
   end
 
   private
