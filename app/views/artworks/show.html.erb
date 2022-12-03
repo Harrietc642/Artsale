@@ -1,13 +1,26 @@
 <article class="message is-link">
   <div class="message-header">
-  <%= link_to 'Home', gallery_index_path %>
-  <%= link_to 'About', about_index_path %>
-  <%= link_to 'Search', artworks_index_path %>
+    <%= link_to 'Account', root_path %>
+    <%= link_to 'About', about_index_path %>
+    <%= link_to 'Search', artworks_index_path %>
     <%= link_to 'Inspirations', inspirations_index_path %>
     <%= link_to 'All Artworks', gallery_index_path %>
   </div>
 </article>
 <article class="message is-link">
+<% if current_user %>
+  <p> You have sucessfully logged in as <%= current_user.email %>!</p>
+<%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
+  form: {data: {turbo_confirm: 'Are you sure?'}} %>
+<% else %>
+  <p>You are browsing our website as guest now</p>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <br />
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
+ </article>
+<article class="message is-link">
+  <h3> <%= @artwork.title %></h3>
   <h3> <%= @artwork.brand %></h3>
   <h3>Price: $<%= @artwork.price %></h3>
   <h3>Genre: <%= @artwork.genre %></h3>

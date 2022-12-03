@@ -1,0 +1,26 @@
+<article class="message is-warning">
+  <div class="message-header">
+    <%= link_to 'Account', root_path %>
+    <%= link_to 'About', about_index_path %>
+    <%= link_to 'Search', artworks_index_path %>
+    <%= link_to 'Inspirations', inspirations_index_path %>
+    <%= link_to 'All Artworks', gallery_index_path %>
+  </div>
+</article>
+
+<div class="tile is-parent message is-warning">
+  <article class="tile is-child notification is-warning">
+    <article class="message is-warning">
+      <% if current_user %>
+        <h1 class="title is-2">You have sucessfully logged in as <%= current_user.email %>!</h1>
+        <%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
+            form: {data: {turbo_confirm: 'Are you sure?'}} %>
+      <% else %>
+      <p>You are browsing our website as guest now</p>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <br />
+      <%= link_to "Sign In", new_user_session_path %>
+      <% end %>
+    </article>
+  </article>
+</div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'pages#home'
+  devise_for :users
 
   get 'contact/index'
   get 'orders/index'
@@ -23,8 +25,8 @@ Rails.application.routes.draw do
   get 'search/index'
   get 'genres/index'
   get 'gallery/add_to_cart/:id', to: 'gallery#add_to_cart', as: 'add_to_cart'
+  #post 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
   delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -34,7 +36,7 @@ Rails.application.routes.draw do
   #resources :gallery, only: [:index, :show]
   resources :genres, only: [:index]
   resources :abouts, only: [:index]
-  root to: 'artworks#index'
+  #root to: 'artworks#index'
   #resources :gallery, only: %i[:remove_from_cart]
 
 end
