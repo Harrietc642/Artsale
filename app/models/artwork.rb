@@ -8,6 +8,7 @@ class Artwork < ApplicationRecord
   has_many :customers, through: :orders
   has_one_attached :image
   validates :title, :price, :brand, presence: true
+  validates :price, numericality: true
   paginates_per 5
   # validates :title, uniqueness: true
   #enum inspiration: { fantasy: 1, romance: 2, horror: 3, fiction: 4, poetry: 5 }

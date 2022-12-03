@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :initialize_session
-  before_action :increment_visit_count, only: %i[index show]
+  before_action :increment_visit_count, only: %i[index show destroy]
   before_action :load_cart
 
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def remove_from_cart
     id = params[:id].to_i
     session[:cart].delete(id)
-    redirect_to(gallery_index_path)
+    redirect_to gallery_index_path
   end
 
   private
