@@ -14,7 +14,7 @@
     <p class="title">Welcome to Blair's World for the <%= pluralize @visit_count, 'time' %>  - See all the products below</p>
     <article class="message is-danger">
       <% if current_user %>
-        <p> You have sucessfully logged in as <%= current_user.email %>!</p>
+        <p> You have sucessfully logged in as <%= current_user.username %>!</p>
         <%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
             form: {data: {turbo_confirm: 'Are you sure?'}} %>
       <% else %>
@@ -29,11 +29,13 @@
       <ul>
         <% @cart.each do |artwork|%>
           <li>
-            <%= artwork.title %>
-            <%if @cart.include?(artwork)%>
-              <%= button_to 'remove from cart', remove_from_cart_path(artwork), method: :delete %>
 
-            <% end %>
+        <%if @cart.include?(artwork)%>
+        <%= artwork.title %>
+          <%= button_to 'remove from cart', remove_from_cart_path(artwork), method: :delete %>
+        <%else%>
+          <p>not in your cart</p>
+        <% end %>
           </li>
         <% end %>
       </ul>

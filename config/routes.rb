@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope '/checkout' do
+    post 'create', to: 'checkout#create', as: 'checkout_create', :defaults => { :format => 'json' }
+    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+    get 'sucess', to: 'checkout#sucess', as: 'checkout_sucess'
+  end
   root 'pages#home'
   devise_for :users
 
@@ -28,7 +33,7 @@ Rails.application.routes.draw do
   #post 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
   delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  get 'gallery/checkout', to: 'gallery#checkout', as: 'checkout'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :artworks, only: [:index, :show]

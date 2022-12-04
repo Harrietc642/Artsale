@@ -23,6 +23,9 @@
         </ul>
 
         <%= link_to 'add to cart', add_to_cart_path(gallery.id), method: :get %>
+        <%= button_to 'checkout', checkout_path(gallery), method: :get %>
+
+        <%= button_to 'buy now', checkout_create_path, method: :post, params: {id: gallery.id}, remote: true %>
     </div>
   </div>
 </div>

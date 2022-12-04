@@ -3,4 +3,5 @@
 
 require_relative "config/application"
 require "devise"
+#require "rubocop/rake_task"
 Rails.application.load_tasks

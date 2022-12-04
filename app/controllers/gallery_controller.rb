@@ -1,6 +1,7 @@
 class GalleryController < ApplicationController
   before_action :initialize_session
   before_action :increment_visit_count, only: %i[index]
+
   def index
     @artworks = Artwork.order("title ASC").page(params[:page])
   end
