@@ -11,18 +11,20 @@ class ApplicationController < ActionController::Base
     id = params[:id].to_i
     #session[:cart] << id unless session[:cart].include?(id)
     session[:cart] << id
-    flash[:notice] = " add to cart!"
-    redirect_to(gallery_index_path, notice: 'Item added!')
-
-
-
+    flash[:notice] = " Item added to your"
+    #redirect_to(gallery_index_path, notice: 'Item added to your')
+    redirect_to gallery_index_path
   end
 
   def remove_from_cart
     id = params[:id].to_i
     #id = Artwork.find(params[:id].to_i)
     session[:cart].delete(id)
-    flash[:notice] = " add to cart!"
+    if session[:cart].empty?
+      flash[:empty] = " ---- Your cart is empty!"
+    else
+      flash[:warning] = " One item removed from your "
+    end
     redirect_to gallery_index_path
   end
 
@@ -31,14 +33,14 @@ class ApplicationController < ActionController::Base
   end
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up,
-        keys: [:username, :address, :province_n, :name, :email, :password, :password_confirmation])
-      devise_parameter_sanitizer.permit(:sign_in,
-        keys: [:login, :password, :password_confirmation])
-      devise_parameter_sanitizer.permit(:account_update,
-        keys: [:username, :name, :email, :password_confirmation, :current_password])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up,
+      keys: [:username, :address, :province_n, :name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_in,
+      keys: [:login, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:account_update,
+      keys: [:username, :name, :email, :password_confirmation, :current_password])
+  end
 
 
 

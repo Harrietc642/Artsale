@@ -7,27 +7,29 @@
     <%= link_to 'All Artworks', gallery_index_path %>
   </div>
 </article>
-<article class="message is-link">
-<% if current_user %>
-  <p> You have sucessfully logged in as <%= current_user.email %>!</p>
-<%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
-  form: {data: {turbo_confirm: 'Are you sure?'}} %>
-<% else %>
-  <p>You are browsing our website as guest now</p>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <br />
-  <%= link_to "Sign In", new_user_session_path %>
-<% end %>
- </article>
-<article class="message is-link">
+<div class="box">
+    <% if current_user %>
+      <p> You have sucessfully logged in as <%= current_user.email %>!</p>
+      <%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
+          form: {data: {turbo_confirm: 'Are you sure?'}} %>
+    <% else %>
+      <p>You are browsing our website as guest now</p>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <br />
+      <%= link_to "Sign In", new_user_session_path %>
+    <% end %>
+</div>
+<div class="tile is-parent">
+<article class=" tile is-child message is-link box">
   <h3> <%= @artwork.title %></h3>
   <h3> <%= @artwork.brand %></h3>
   <h3>Price: $<%= @artwork.price %></h3>
   <h3>Genre: <%= @artwork.genre %></h3>
   <h3>Inspiration: <%= @artwork.inspiration_name %></h3>
   <h3>Bitcoin Address: <%= @artwork.bitcoin_address %></h3>
-
+  <br>
   <% if @artwork.image.present? %>
-    <p><%= image_tag @artwork.image %></p>
+    <p> <%= link_to image_tag(@artwork.image, width: '500'), gallery_index_path, method: :get %></p>
   <% end %>
 </article>
+</div>

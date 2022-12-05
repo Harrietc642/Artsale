@@ -10,4 +10,9 @@ class GalleryController < ApplicationController
     @artwork = Artwork.find(params[:id])
   end
 
+  def image
+    #@images = Artwork.order("title ASC").page(params[:page])
+    #@artwork = Artwork.find(params[:id])
+  end
+
 end

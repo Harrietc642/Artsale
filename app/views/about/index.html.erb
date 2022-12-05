@@ -1,47 +1,35 @@
 <article class="message is-link">
-<div class="message-header">
- <%= link_to 'Account', root_path %>
- <%= link_to 'About', about_index_path %>
- <%= link_to 'Search', artworks_index_path %>
-  <%= link_to 'Inspirations', inspirations_index_path %>
-  <%= link_to 'All Artworks', gallery_index_path %>
-</div>
+  <div class="message-header">
+    <%= link_to 'Account', root_path %>
+    <%= link_to 'About', about_index_path %>
+    <%= link_to 'Search', artworks_index_path %>
+    <%= link_to 'Inspirations', inspirations_index_path %>
+    <%= link_to 'All Artworks', gallery_index_path %>
+  </div>
 </article>
+
 <article class="message is-link">
   <div class="message-body">
     <% @about.each do |ab| %>
-    <div class="block">
-        <ul class="ml-4">
-          <strong><%= ab.subject %></strong>
-          <div class="message-body">
-            <%= ab.content %>
-          </div>
-        </ul>
-      </div>
+      <p class="ml-4">
+        <%= ab.subject %>
+      </p>
+      <p class="ml-4">
+        <%= ab.content %>
+      </p>
     <% end %>
   </div>
 </article>
+
 <article class="message is-link">
   <div class="message-body block">
     <% @contact.each do |con| %>
       <div class="block">
-        <ul class="ml-4">
-          <strong><%= con.subject %></strong>
-          <div class="message-body">
-            <ul>
-              <strong><%= con.name %></strong>
-            </ul>
-            <ul>
-              <%= con.full_address %>
-            </ul>
-            <ul>
-              <%= con.phone %>
-            </ul>
-            <ul>
-              <%= con.hours %>
-            </ul>
-          </div>
-        </ul>
+        <h1><%= con.subject %></h1>
+        <h4><%= con.name %></h4>
+        <p><%= con.full_address %></p>
+        <p><%= con.phone %></p>
+        <p><%= con.hours %></p>
       </div>
     <% end %>
   </div>

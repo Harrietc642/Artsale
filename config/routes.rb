@@ -26,9 +26,12 @@ Rails.application.routes.draw do
   get 'artworks/show'
   get 'about/index' ## about page
   get 'gallery/index'
+
+  get 'gallery/image'
   get 'gallery/show'
   get 'search/index'
   get 'genres/index'
+
   get 'gallery/add_to_cart/:id', to: 'gallery#add_to_cart', as: 'add_to_cart'
   #post 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
   delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
@@ -36,11 +39,12 @@ Rails.application.routes.draw do
   get 'gallery/checkout', to: 'gallery#checkout', as: 'checkout'
   get 'artworks/on_sale_item'
   get 'artworks/new_item'
+
   # Defines the root path route ("/")
   # root "articles#index"
   resources :artworks, only: [:index, :show, :on_sale_item, :new_item]
   resources :inspirations, only: [:index, :show]
-  #resources :gallery, only: [:index, :show]
+  resources :gallery, only: [:image]
   resources :genres, only: [:index]
   resources :abouts, only: [:index]
   #root to: 'artworks#index'

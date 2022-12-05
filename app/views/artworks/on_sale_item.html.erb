@@ -1,14 +1,15 @@
-<<article class="message is-success">
-<div class="message-header">
- <%= link_to 'Account', root_path %>
- <%= link_to 'About', about_index_path %>
- <%= link_to 'Search', artworks_index_path %>
-  <%= link_to 'Inspirations', inspirations_index_path %>
-  <%= link_to 'All Artworks', gallery_index_path %>
-</div>
-</article>
 <article class="message is-success">
-  <div class="message-body">
+  <div class="message-header">
+    <%= link_to 'Account', root_path %>
+    <%= link_to 'About', about_index_path %>
+    <%= link_to 'Search', artworks_index_path %>
+    <%= link_to 'Inspirations', inspirations_index_path %>
+    <%= link_to 'All Artworks', gallery_index_path %>
+  </div>
+</article>
+
+<article class="message is-success">
+  <div class=" message is-success box">
     <% if current_user %>
       <p> You have sucessfully logged in as <%= current_user.email %>!</p>
       <%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
@@ -23,35 +24,31 @@
     <strong>Look for your favourite artwork here!</strong>
   </div>
 </article>
-<article class="message is-success">
-  <div class="message-body">
-
-    <form class="box">
-      <div class="field">
-        <%= search_form_for @q, remote: true do |f| %>
-        <label class="label">Products</label>
-        <div class="control">
-          <%= f.search_field  :title_cont%>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Category</label>
-        <div class="control">
-          <%= f.select :inspiration_id_matches, options_from_collection_for_select(Inspiration.all, :id,:name,  @q.inspiration_id_matches), { :include_blank => true }, :class => "form-control" %>
-        </div>
-
-      </div>
-
+<div class="message is-success box">
+  <%= search_form_for @q, remote: true do |f| %>
+    <label class="label">Products</label>
+    <div class="control">
+      <%= f.search_field  :title_cont%>
+    </div>
+    <label class="label">Category</label>
+    <div class="control">
+      <%= f.select :inspiration_id_matches, options_from_collection_for_select(Inspiration.all, :id,:name,  @q.inspiration_id_matches), { :include_blank => true }, :class => "form-control" %>
+    </div>
+    <br>
     <%= f.submit %>
-    <br><br>
-    <p>Filter</p><strong><%= link_to 'On sale', artworks_on_sale_item_path%><br><%= link_to 'New Item', artworks_new_item_path %></strong>
-    <% end %>
-    </form>
-    <ul class="ml-4">
-      <% @sale_artworks.each do |artwork| %>
-        <li><%= link_to artwork.title, artwork %></li>
-      <% end %>
-    </ul>
+  <% end %>
+  <br>
+  <p>Filter</p>
+  <div>
+    <strong><%= link_to 'On Sale', artworks_on_sale_item_path%></strong>
   </div>
-</article>
-
+  <div>
+    <strong><%= link_to 'New Item', artworks_new_item_path %></strong>
+  </div>
+  <br>
+  <ul class="ml-4">
+    <% @sale_artworks.each do |artwork| %>
+      <li><%= link_to artwork.title, artwork %></li>
+    <% end %>
+  </ul>
+</div>
