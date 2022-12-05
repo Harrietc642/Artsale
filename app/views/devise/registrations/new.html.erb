@@ -7,6 +7,14 @@
     <%= f.text_field :username, autofocus: true, class: "input", autocomplete: "username" %>
   </div>
   <div class="field">
+    <%= f.label :province  %><br />
+    <%= f.text_field :province_n, autofocus: true, class: "input", autocomplete: "username", placeholder: "Enter one of the following: AB, BC, MB, NB, NL, NT, NS, NU, ON, PE, QC, SK, YT"  %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, class: "input", autocomplete: "username" %>
+  </div>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>

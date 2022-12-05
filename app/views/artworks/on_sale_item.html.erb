@@ -1,4 +1,4 @@
-<article class="message is-success">
+<<article class="message is-success">
 <div class="message-header">
  <%= link_to 'Account', root_path %>
  <%= link_to 'About', about_index_path %>
@@ -7,7 +7,6 @@
   <%= link_to 'All Artworks', gallery_index_path %>
 </div>
 </article>
-
 <article class="message is-success">
   <div class="message-body">
     <% if current_user %>
@@ -40,19 +39,19 @@
         <div class="control">
           <%= f.select :inspiration_id_matches, options_from_collection_for_select(Inspiration.all, :id,:name,  @q.inspiration_id_matches), { :include_blank => true }, :class => "form-control" %>
         </div>
+
       </div>
+
     <%= f.submit %>
     <br><br>
     <p>Filter</p><strong><%= link_to 'On sale', artworks_on_sale_item_path%><br><%= link_to 'New Item', artworks_new_item_path %></strong>
     <% end %>
     </form>
     <ul class="ml-4">
-      <% @resu.each do |artwork| %>
+      <% @sale_artworks.each do |artwork| %>
         <li><%= link_to artwork.title, artwork %></li>
       <% end %>
     </ul>
-
   </div>
 </article>
-
 

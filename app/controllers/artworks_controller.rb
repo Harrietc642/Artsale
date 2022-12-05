@@ -18,6 +18,18 @@ class ArtworksController < ApplicationController
 
 
   end
+  def on_sale_item
+    @q = Artwork.ransack(params[:q])
+    @resu = @q.result(:distinct => true).includes(:inspiration)
+    @sale_artworks = Artwork.where("price < 3000")
+  end
+
+  def new_item
+    @q = Artwork.ransack(params[:q])
+    @resu = @q.result(:distinct => true).includes(:inspiration)
+    @new_artworks = Artwork.where("created_at >= ?", Time.zone.now.beginning_of_day)
+
+  end
 
 
 end

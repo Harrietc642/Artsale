@@ -11,10 +11,7 @@ class CheckoutController < ApplicationController
       success_url:          checkout_sucess_url,
       cancel_url:           checkout_cancel_url,
       line_items: [
-        name: @artwork.title,
-        description: @artwork.brand,
-        amount: @artwork.price.to_i,
-        currency: "cad",
+        price: 66,
         quantity: 1
       ],
       mode: 'payment'

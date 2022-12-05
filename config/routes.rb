@@ -34,9 +34,11 @@ Rails.application.routes.draw do
   delete 'gallery/remove_from_cart/:id', to: 'gallery#remove_from_cart', as: 'remove_from_cart'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'gallery/checkout', to: 'gallery#checkout', as: 'checkout'
+  get 'artworks/on_sale_item'
+  get 'artworks/new_item'
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :artworks, only: [:index, :show]
+  resources :artworks, only: [:index, :show, :on_sale_item, :new_item]
   resources :inspirations, only: [:index, :show]
   #resources :gallery, only: [:index, :show]
   resources :genres, only: [:index]

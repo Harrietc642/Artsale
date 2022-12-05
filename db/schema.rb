@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_084419) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_013127) do
   create_table "abouts", force: :cascade do |t|
     t.text "subject"
     t.text "content"
@@ -150,6 +150,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_084419) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.string "province_ab"
+    t.string "province_name"
+    t.decimal "GST"
+    t.decimal "PST"
+    t.decimal "HST"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -161,6 +171,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_084419) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "stripe_customer_id"
+    t.string "address"
+    t.string "province_n"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
