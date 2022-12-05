@@ -11,14 +11,18 @@ class ApplicationController < ActionController::Base
     id = params[:id].to_i
     #session[:cart] << id unless session[:cart].include?(id)
     session[:cart] << id
-
+    flash[:notice] = " add to cart!"
     redirect_to(gallery_index_path, notice: 'Item added!')
+
+
+
   end
 
   def remove_from_cart
     id = params[:id].to_i
     #id = Artwork.find(params[:id].to_i)
     session[:cart].delete(id)
+    flash[:notice] = " add to cart!"
     redirect_to gallery_index_path
   end
 

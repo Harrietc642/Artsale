@@ -25,7 +25,9 @@
       <% end %>
     </article>
     <details>
-      <summary>Shopping Cart</summary>
+      <summary><strong><%=flash[:notice] %></strong>Shopping Cart</summary>
+      <br>
+
       <ul>
         <% @cart.each do |artwork|%>
           <li>
