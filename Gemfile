@@ -81,4 +81,6 @@ gem 'sassc-rails'
 gem 'image_processing', ">= 1.2"
 gem 'stripe'
 #gem "solidus"
-gem "rubocop", "~>1.7"
+#gem "rubocop", "~>1.7"
+gem 'rubocop'
+gem 'rubocop-rails'
