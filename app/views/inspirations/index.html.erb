@@ -1,12 +1,34 @@
-<article class="message is-warning">
-  <div class="message-header">
-    <%= link_to 'Account', root_path %>
-    <%= link_to 'About', about_index_path %>
-    <%= link_to 'Search', artworks_index_path %>
-    <%= link_to 'Inspirations', inspirations_index_path %>
-    <%= link_to 'All Artworks', gallery_index_path %>
+<nav class="navbar is-primary message is-warning message-header ">
+  <div class="container">
+    <div class="navbar-brand">
+      <span class="navbar-burger burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="navMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <p class="navbar-item is-active"><%= link_to 'Account', root_path %></p>
+        <p class="navbar-item is-active"><%= link_to 'About', about_index_path %></p>
+        <p class="navbar-item is-active"><%= link_to 'Search', artworks_index_path %></p>
+        <p class="navbar-item is-active"><%= link_to 'Inspirations', inspirations_index_path %></p>
+        <p class="navbar-item is-active"><%= link_to 'Artworks', gallery_index_path %></p>
+      </div>
+    </div>
   </div>
-</article>
+</nav>
+<script type="text/javascript">
+  (function() {
+    var burger = document.querySelector('.burger');
+    var nav = document.querySelector('#'+burger.dataset.target);
+
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('is-active');
+      nav.classList.toggle('is-active');
+    });
+  })();
+</script>
 <div class="tile is-parent message is-warning">
   <h1 class="title is-2">Navigate our products here through their inspiration category:</h1>
 </div>

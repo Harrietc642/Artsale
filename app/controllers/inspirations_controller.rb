@@ -9,7 +9,7 @@ class InspirationsController < ApplicationController
   def show
     @inspiration = Inspiration.find(params[:id])
     @w = Inspiration.find(params[:id]).id
-    r = (@w).to_s
+    r = @w.to_s
     @queryyys = Artwork.joins(:inspiration).where("inspiration_id like ?", r)
   end
 end

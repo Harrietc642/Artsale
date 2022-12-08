@@ -25,8 +25,6 @@
   <h3> <%= @artwork.brand %></h3>
   <h3>Price: $<%= @artwork.price %></h3>
   <h3>Genre: <%= @artwork.genre %></h3>
-  <h3>Inspiration: <%= @artwork.inspiration_name %></h3>
-  <h3>Bitcoin Address: <%= @artwork.bitcoin_address %></h3>
   <br>
   <% if @artwork.image.present? %>
     <p> <%= link_to image_tag(@artwork.image, width: '500'), gallery_index_path, method: :get %></p>
